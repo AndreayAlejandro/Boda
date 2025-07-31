@@ -1,0 +1,176 @@
+/* ==== ESTILO BASE ==== */
+html, body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Playfair Display', serif;
+    background: linear-gradient(180deg, #FFF0F5 0%, #FFD6E8 100%);
+    color: #5C2A2A;
+    text-align: center;
+    overflow-x: hidden;
+}
+
+/* ==== FONDO ANIMADO ==== */
+.fondo {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1;
+}
+
+.particula {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: rgba(255, 182, 193, 0.3);
+    border-radius: 50%;
+    animation: flotar 12s infinite ease-in-out;
+}
+
+.particula:nth-child(1) { left: 10%; animation-duration: 14s; }
+.particula:nth-child(2) { left: 30%; animation-duration: 10s; }
+.particula:nth-child(3) { left: 50%; animation-duration: 16s; }
+.particula:nth-child(4) { left: 70%; animation-duration: 12s; }
+.particula:nth-child(5) { left: 85%; animation-duration: 18s; }
+
+@keyframes flotar {
+    0% { transform: translateY(100vh) scale(0.5); opacity: 0.2; }
+    50% { opacity: 1; }
+    100% { transform: translateY(-10vh) scale(1); opacity: 0; }
+}
+
+/* ==== HERO ==== */
+.hero {
+    padding: 80px 20px 40px;
+}
+
+.nombres {
+    font-family: 'Great Vibes', cursive;
+    font-size: 2.8rem;
+    margin: 0;
+    color: #A63C59;
+}
+
+.fecha {
+    font-size: 1.2rem;
+    color: #5C2A2A;
+    margin-top: 8px;
+}
+
+/* ==== TARJETAS COHESIONADAS ==== */
+.tarjeta {
+    background: rgba(255,255,255,0.7);
+    margin: 20px auto;
+    padding: 25px 15px;
+    max-width: 320px;
+    border-radius: 20px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    backdrop-filter: blur(6px);
+}
+
+.tarjeta h2 {
+    margin-bottom: 10px;
+    font-size: 1.5rem;
+    color: #A63C59;
+}
+
+.tarjeta p {
+    font-size: 1rem;
+    line-height: 1.4;
+}
+
+/* ==== BOTÓN ==== */
+.btn {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 12px 20px;
+    background: #E89CA9;
+    color: white;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+.btn:hover {
+    background: #d88494;
+}
+
+/* ==== FOOTER ==== */
+footer {
+    padding: 30px 10px 50px;
+    font-size: 0.9rem;
+}
+
+/* ==== ANIMACIONES SUAVES ==== */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: aparecer 1s ease forwards;
+}
+
+.fade-in:nth-child(1) { animation-delay: 0.3s; }
+.fade-in:nth-child(2) { animation-delay: 0.6s; }
+.fade-in:nth-child(3) { animation-delay: 0.9s; }
+.fade-in:nth-child(4) { animation-delay: 1.2s; }
+
+@keyframes aparecer {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ==== CUENTA REGRESIVA ==== */
+.countdown {
+    display: flex;
+    justify-content: space-around;
+    gap: 10px;
+    margin-top: 15px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+    width: 100%;
+    max-width: 400px;
+    margin-inline: auto;
+}
+
+.countdown div {
+    flex: 1;
+    background: rgba(255, 255, 255, 0.6);
+    padding: 10px 5px;
+    border-radius: 12px;
+    box-shadow: 0 2px 6px rgba(92, 42, 42, 0.15);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.countdown strong {
+    display: block;
+    font-size: 1.6rem;
+    transition: transform 0.3s;
+}
+
+.countdown span {
+    display: block;
+    font-size: 0.7rem;
+    font-weight: normal;
+    margin-top: 3px;
+    color: #5C2A2A;
+}
+
+/* Animación individual del número */
+.animate {
+    animation: flip 0.5s;
+}
+
+@keyframes flip {
+    0% { transform: rotateX(0); }
+    50% { transform: rotateX(90deg); }
+    100% { transform: rotateX(0); }
+}
+
+
