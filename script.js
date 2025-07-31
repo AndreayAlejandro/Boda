@@ -100,3 +100,15 @@ busSi.addEventListener('change', () => {
 busNo.addEventListener('change', () => {
   if (busNo.checked) busSi.checked = false;
 });
+
+const telefonoInput = document.getElementById('telefono');
+
+telefonoInput.addEventListener('input', () => {
+  // Eliminar cualquier carácter que no sea número
+  telefonoInput.value = telefonoInput.value.replace(/[^0-9]/g, '');
+
+  // Limitar a 9 caracteres
+  if (telefonoInput.value.length > 9) {
+    telefonoInput.value = telefonoInput.value.slice(0, 9);
+  }
+});
