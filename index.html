@@ -38,9 +38,11 @@
       <!-- Ubicación -->
       <section class="tarjeta fade-in ubicacion">
         <h2>📍 Ubicación</h2>
-        <p class="hora-ceremonia">⏰ La ceremonia comienza a las: <strong>13:00h</strong></p>
+        <p class="hora-ceremonia">
+          ⏰ La ceremonia comienza a las: <strong>13:00h</strong>
+        </p>
 
-        <p>
+        <div>
           <h3>💒 Ceremonia</h3>
           <p>Parroquia de Sant Andreu, Alcudia</p>
           <a
@@ -49,10 +51,10 @@
             class="btn"
             >Ver en Google Maps</a
           >
-        </p>
+        </div>
 
-        <p>
-           <h3>🎉 Celebración</h3>
+        <div>
+          <h3>🎉 Celebración</h3>
           <p>Cotonera, Alzira</p>
           <a
             href="https://maps.app.goo.gl/RVkjzhwAg5NSzxP46"
@@ -60,7 +62,7 @@
             class="btn"
             >Ver en Google Maps</a
           >
-        </p>
+        </div>
       </section>
 
       <!-- Sección mensaje final -->
@@ -84,87 +86,229 @@
       </section>
 
       <!-- Formulario de Confirmación -->
-<section class="tarjeta fade-in formulario">
-  <h2>📝 Confirmar Asistencia</h2>
-  <form id="form-asistencia" action="https://formsubmit.co/andreamarquesmira@gmail.com" method="POST">
+      <section class="tarjeta fade-in formulario">
+        <h2>📝 Confirmar Asistencia</h2>
+        <form
+          id="form-asistencia"
+          action="https://formsubmit.co/andreamarquesmira@gmail.com"
+          method="POST"
+        >
+          <!-- Nombre -->
+          <label for="nombre">Nombre completo:</label>
+          <input type="text" id="nombre" name="nombre" required />
 
-    <!-- Nombre -->
-    <label for="nombre">Nombre completo:</label>
-    <input type="text" id="nombre" name="nombre" required>
+          <!-- Correo -->
+          <label for="correo">Correo electrónico:</label>
+          <input type="email" id="correo" name="correo" required />
 
-    <!-- Correo -->
-    <label for="correo">Correo electrónico:</label>
-    <input type="email" id="correo" name="correo" required>
+          <!-- Teléfono -->
+          <label for="telefono">Teléfono:</label>
+          <input
+            type="tel"
+            id="telefono"
+            name="telefono"
+            maxlength="9"
+            required
+          />
 
-    <!-- Teléfono -->
-    <label for="telefono">Teléfono:</label>
-    <input type="tel" id="telefono" name="telefono" pattern="[0-9+ ]+" required>
+          <table
+            style="width: 100%; border-collapse: collapse; margin-top: 15px"
+          >
+            <!-- Asistencia -->
+            <tr>
+              <td style="text-align: left; padding: 8px">
+                <span>¿Asistirás?</span>
+              </td>
+              <td style="text-align: right; padding: 4px">
+                <label>
+                  <input
+                    type="radio"
+                    id="asistir-si"
+                    name="Asistencia"
+                    value="Si"
+                    required
+                  />
+                  Sí
+                </label>
+                <label>
+                  <input
+                    type="radio"
+                    id="asistir-no"
+                    name="Asistencia"
+                    value="No"
+                  />
+                  No
+                </label>
+              </td>
+            </tr>
 
-    <!-- Asistencia -->
-    <div class="checkbox-group">
-      <span>¿Asistirás?</span>
-      <label><input type="checkbox" id="asistir-si" name="asistir" value="si" required> Sí</label>
-      <label><input type="checkbox" id="asistir-no" name="asistir" value="no"> No</label>
-    </div>
+            <!-- Autobús -->
+            <tr>
+              <td style="text-align: left; padding: 8px">
+                <span>¿Necesitas autobús?</span>
+              </td>
+              <td style="text-align: right; padding: 4px">
+                <label>
+                  <input
+                    type="radio"
+                    id="bus-si"
+                    name="¿Necesita bus?"
+                    value="si"
+                    required
+                  />
+                  Sí
+                </label>
+                <label>
+                  <input
+                    type="radio"
+                    id="bus-no"
+                    name="¿Necesita bus?"
+                    value="no"
+                  />
+                  No
+                </label>
+              </td>
+            </tr>
 
-    <!-- Alergias -->
-    <div class="checkbox-group">
-      <span>¿Tienes alergias?</span>
-      <label><input type="checkbox" id="alergia-si" name="alergia" value="si"> Sí</label>
-      <label><input type="checkbox" id="alergia-no" name="alergia" value="no" checked> No</label>
-    </div>
+            <!-- Alergias -->
+            <tr>
+              <td style="text-align: left; padding: 8px">
+                <span>¿Tienes alguna alergia?</span>
+              </td>
+              <td style="text-align: right; padding: 4px">
+                <label>
+                  <input
+                    type="radio"
+                    id="alergia-si"
+                    name="¿Tiene alguna alergia?"
+                    value="si"
+                    required
+                  />
+                  Sí
+                </label>
+                <label>
+                  <input
+                    type="radio"
+                    id="alergia-no"
+                    name="¿Tiene alguna alergia?"
+                    value="no"
+                  />
+                  No
+                </label>
+              </td>
+            </tr>
+            <!-- Campo oculto alergia -->
+            <tr id="fila-alergia" style="display: none">
+              <td colspan="2" style="padding: 10px; text-align: center">
+                <label for="detalle-alergia">Especifica tus alergias:</label
+                ><br />
+                <textarea
+                  id="detalle-alergia"
+                  name="Detalles de la alergia"
+                  disabled
+                  style="width: 80%; max-width: 400px"
+                ></textarea>
+              </td>
+            </tr>
 
-    <textarea id="detalle-alergia" name="detalle-alergia" placeholder="Indica tus alergias..." disabled></textarea>
+            <!-- Acompañantes -->
+            <tr>
+              <td style="text-align: left; padding: 8px">
+                <span> ¿Vienes con acompañantes? <br />(Niños incluidos) </span>
+              </td>
+              <td style="text-align: right; padding: 4px">
+                <label>
+                  <input
+                    type="radio"
+                    id="acompanante-si"
+                    name="¿Viene con acompañantes?"
+                    value="si"
+                    required
+                  />
+                  Sí
+                </label>
+                <label>
+                  <input
+                    type="radio"
+                    id="acompanante-no"
+                    name="¿Viene con acompañantes?"
+                    value="no"
+                  />
+                  No
+                </label>
+              </td>
+            </tr>
+            <!-- Campo oculto acompañantes -->
+            <tr id="fila-acompanantes" style="display: none">
+              <td colspan="2" style="padding: 10px; text-align: center">
+                <label for="num-acompanantes">¿Cuántos acompañantes?</label
+                ><br />
+                <input
+                  type="number"
+                  id="num-acompanantes"
+                  name="Numero de acompañantes"
+                  min="1"
+                  max="10"
+                  disabled
+                  style="width: 80%; max-width: 200px"
+                />
+              </td>
+            </tr>
+          </table>
 
-    <!-- Autobús -->
-    <div class="checkbox-group">
-      <span>¿Necesitas autobús?</span>
-      <label><input type="checkbox" id="bus-si" name="bus" value="si"> Sí</label>
-      <label><input type="checkbox" id="bus-no" name="bus" value="no" checked> No</label>
-    </div>
+          <!-- Campo oculto para detalle alergia (fuera de la tabla) -->
+          <div
+            id="campo-alergia"
+            style="display: none; margin: 15px 0; text-align: center"
+          >
+            <label for="detalle-alergia">Especifica tus alergias:</label><br />
+            <textarea
+              id="detalle-alergia"
+              name="Detalles de la alergia"
+              disabled
+              style="width: 80%; max-width: 400px"
+            ></textarea>
+          </div>
 
-    <button type="submit" class="btn" id="btn-enviar">Enviar Confirmación</button>
-  </form>
-</section>
+          <!-- Campo oculto para acompañantes (fuera de la tabla) -->
+          <div
+            id="campo-acompanantes"
+            style="display: none; margin: 15px 0; text-align: center"
+          >
+            <label for="num-acompanantes">¿Cuántos acompañantes?</label><br />
+            <input
+              type="number"
+              id="num-acompanantes"
+              name="Numero de acompañantes"
+              min="1"
+              max="10"
+              disabled
+              style="width: 120px"
+            />
+          </div>
 
+          <!-- Botón final -->
+          <button type="submit" class="btn" id="btn-enviar">
+            Enviar Confirmación
+          </button>
+        </form>
+      </section>
     </main>
 
-    
-
-
     <div class="petalos"></div>
-<script>
-    const petalos = document.querySelector('.petalos');
-
-    function crearPetalo() {
-        const petalo = document.createElement('span');
-        const size = Math.random() * 15 + 10; // Tamaño entre 10 y 25px
-        const left = Math.random() * window.innerWidth;
-        const duracion = Math.random() * 5 + 5; // Entre 5 y 10s de caída
-
-        petalo.style.width = `${size}px`;
-        petalo.style.height = `${size*0.6}px`; // Más achatado como pétalo
-        petalo.style.left = `${left}px`;
-        petalo.style.animationDuration = `${duracion}s`;
-
-        petalos.appendChild(petalo);
-
-        // Eliminar cuando termine para no saturar el DOM
-        setTimeout(() => petalo.remove(), duracion * 1000);
-    }
-
-    // Crear pétalos cada 300-600ms (sutil)
-    setInterval(crearPetalo, 400);
-</script>
 
     <script src="script.js"></script>
 
     <footer class="fade-in">
       <p>Con todo nuestro cariño ❤️</p>
     </footer>
-<footer class="footer">
-  <p>© 2025 <a href="https://g0r3n.github.io/Portfolio/" target="_blank">Goren Jiménez Mira</a></p>
-</footer>
-
+    <footer class="footer">
+      <p>
+        © 2025
+        <a href="https://g0r3n.github.io/Portfolio/" target="_blank"
+          >Goren Jiménez Mira</a
+        >
+      </p>
+    </footer>
   </body>
 </html>
