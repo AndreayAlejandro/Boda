@@ -1,4 +1,4 @@
-const weddingDate = new Date("2025-08-30T00:00:00").getTime();
+const weddingDate = new Date("2025-12-27T00:00:00").getTime();
 const countdownElement = document.getElementById("countdown");
 
 // Estado previo para saber qué cambió
@@ -49,3 +49,54 @@ function actualizarCountdown() {
 
 const timer = setInterval(actualizarCountdown, 1000);
 actualizarCountdown();
+
+// ===== LÓGICA DEL FORMULARIO =====
+const asistirSi = document.getElementById('asistir-si');
+const asistirNo = document.getElementById('asistir-no');
+const btnEnviar = document.getElementById('btn-enviar');
+
+const alergiaSi = document.getElementById('alergia-si');
+const alergiaNo = document.getElementById('alergia-no');
+const detalleAlergia = document.getElementById('detalle-alergia');
+
+const busSi = document.getElementById('bus-si');
+const busNo = document.getElementById('bus-no');
+
+// --- Comportamiento Asistencia ---
+asistirSi.addEventListener('change', () => {
+  if (asistirSi.checked) asistirNo.checked = false;
+  btnEnviar.disabled = false;
+});
+asistirNo.addEventListener('change', () => {
+  if (asistirNo.checked) {
+    asistirSi.checked = false;
+    btnEnviar.disabled = true; // Desactiva envío si no asiste
+  } else {
+    btnEnviar.disabled = false;
+  }
+});
+
+// --- Comportamiento Alergias ---
+alergiaSi.addEventListener('change', () => {
+  if (alergiaSi.checked) {
+    alergiaNo.checked = false;
+    detalleAlergia.disabled = false;
+    detalleAlergia.required = true;
+  }
+});
+alergiaNo.addEventListener('change', () => {
+  if (alergiaNo.checked) {
+    alergiaSi.checked = false;
+    detalleAlergia.disabled = true;
+    detalleAlergia.required = false;
+    detalleAlergia.value = "";
+  }
+});
+
+// --- Comportamiento Autobús ---
+busSi.addEventListener('change', () => {
+  if (busSi.checked) busNo.checked = false;
+});
+busNo.addEventListener('change', () => {
+  if (busNo.checked) busSi.checked = false;
+});

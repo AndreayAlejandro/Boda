@@ -1,53 +1,164 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0"
+    />
     <title>Boda de Andrea & Alejandro</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@500&display=swap" rel="stylesheet">
-</head>
-<body>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@500&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
     <div class="fondo">
-        <div class="particula"></div>
-        <div class="particula"></div>
-        <div class="particula"></div>
-        <div class="particula"></div>
-        <div class="particula"></div>
+      <div class="particula"></div>
+      <div class="particula"></div>
+      <div class="particula"></div>
+      <div class="particula"></div>
+      <div class="particula"></div>
     </div>
 
     <header class="hero fade-in">
-        <h1 class="nombres">Andrea & Alejandro</h1>
-        <p class="fecha">27 de Diciembre de 2025</p>
+      <h1 class="nombres">Andrea & Alejandro</h1>
+      <p class="fecha">27 de Diciembre de 2025</p>
     </header>
 
     <main>
-        <!-- Sección cuenta regresiva -->
-        <section class="tarjeta fade-in">
-            <h2>💞 Falta muy poco 💞</h2>
-            <p>Estamos deseando celebrar este día tan especial contigo.</p>
-            <div id="countdown" class="countdown"></div>
-        </section>
+      <!-- Sección cuenta regresiva -->
+      <section class="tarjeta fade-in">
+        <h2>💞 Falta muy poco 💞</h2>
+        <p>Estamos deseando celebrar este día tan especial contigo.</p>
+        <div id="countdown" class="countdown"></div>
+      </section>
 
-        <!-- Sección ubicación -->
-        <section class="tarjeta fade-in">
-            <h2>📍 Ubicación</h2>
-            <p>Cotonera, Alzira</p>
-            <a href="https://maps.google.com" target="_blank" class="btn">Abrir en Google Maps</a>
-        </section>
+      <!-- Ubicación -->
+      <section class="tarjeta fade-in ubicacion">
+        <h2>📍 Ubicación</h2>
+        <p class="hora-ceremonia">⏰ La ceremonia comienza a las: <strong>13:00h</strong></p>
 
-        <!-- Sección mensaje final -->
-        <section class="tarjeta fade-in">
-            <h2>💌 Gracias por acompañarnos</h2>
-            <p>Tu presencia es nuestro mejor regalo.  
-               Prepárate para un día lleno de amor, risas y recuerdos inolvidables.</p>
-        </section>
+        <p>
+          <h3>💒 Ceremonia</h3>
+          <p>Parroquia de Sant Andreu, Alcudia</p>
+          <a
+            href="https://maps.app.goo.gl/5nk78WY3pvLPsmr39"
+            target="_blank"
+            class="btn"
+            >Ver en Google Maps</a
+          >
+        </p>
+
+        <p>
+           <h3>🎉 Celebración</h3>
+          <p>Cotonera, Alzira</p>
+          <a
+            href="https://maps.app.goo.gl/RVkjzhwAg5NSzxP46"
+            target="_blank"
+            class="btn"
+            >Ver en Google Maps</a
+          >
+        </p>
+      </section>
+
+      <!-- Sección mensaje final -->
+      <section class="tarjeta fade-in">
+        <h2>💌 Gracias por acompañarnos</h2>
+        <p>
+          Tu presencia es nuestro mejor regalo. Prepárate para un día lleno de
+          amor, risas y recuerdos inolvidables.
+        </p>
+      </section>
+
+      <!-- Galería de fotos -->
+      <section class="tarjeta fade-in galeria">
+        <h2>📷 Nuestros Momentos</h2>
+        <div class="fotos">
+          <img src="fotos/1.jpg" />
+          <img src="fotos/2.jpg" />
+          <img src="fotos/3.jpg" />
+          <img src="fotos/4.jpg" />
+        </div>
+      </section>
+
+      <!-- Formulario de Confirmación -->
+<section class="tarjeta fade-in formulario">
+  <h2>📝 Confirmar Asistencia</h2>
+  <form id="form-asistencia" action="https://formsubmit.co/gorenjm04@gmail.com" method="POST">
+
+    <!-- Nombre -->
+    <label for="nombre">Nombre completo:</label>
+    <input type="text" id="nombre" name="nombre" required>
+
+    <!-- Correo -->
+    <label for="correo">Correo electrónico:</label>
+    <input type="email" id="correo" name="correo" required>
+
+    <!-- Teléfono -->
+    <label for="telefono">Teléfono:</label>
+    <input type="tel" id="telefono" name="telefono" pattern="[0-9+ ]+" required>
+
+    <!-- Asistencia -->
+    <div class="checkbox-group">
+      <span>¿Asistirás?</span>
+      <label><input type="checkbox" id="asistir-si" name="asistir" value="si" required> Sí</label>
+      <label><input type="checkbox" id="asistir-no" name="asistir" value="no"> No</label>
+    </div>
+
+    <!-- Alergias -->
+    <div class="checkbox-group">
+      <span>¿Tienes alergias?</span>
+      <label><input type="checkbox" id="alergia-si" name="alergia" value="si"> Sí</label>
+      <label><input type="checkbox" id="alergia-no" name="alergia" value="no" checked> No</label>
+    </div>
+
+    <textarea id="detalle-alergia" name="detalle-alergia" placeholder="Indica tus alergias..." disabled></textarea>
+
+    <!-- Autobús -->
+    <div class="checkbox-group">
+      <span>¿Necesitas autobús?</span>
+      <label><input type="checkbox" id="bus-si" name="bus" value="si"> Sí</label>
+      <label><input type="checkbox" id="bus-no" name="bus" value="no" checked> No</label>
+    </div>
+
+    <button type="submit" class="btn" id="btn-enviar">Enviar Confirmación</button>
+  </form>
+</section>
+
     </main>
 
     <footer class="fade-in">
-        <p>Con todo nuestro cariño ❤️</p>
+      <p>Con todo nuestro cariño ❤️</p>
     </footer>
 
     <script src="script.js"></script>
-</body>
+
+    <div class="petalos"></div>
+<script>
+    const petalos = document.querySelector('.petalos');
+
+    function crearPetalo() {
+        const petalo = document.createElement('span');
+        const size = Math.random() * 15 + 10; // Tamaño entre 10 y 25px
+        const left = Math.random() * window.innerWidth;
+        const duracion = Math.random() * 5 + 5; // Entre 5 y 10s de caída
+
+        petalo.style.width = `${size}px`;
+        petalo.style.height = `${size*0.6}px`; // Más achatado como pétalo
+        petalo.style.left = `${left}px`;
+        petalo.style.animationDuration = `${duracion}s`;
+
+        petalos.appendChild(petalo);
+
+        // Eliminar cuando termine para no saturar el DOM
+        setTimeout(() => petalo.remove(), duracion * 1000);
+    }
+
+    // Crear pétalos cada 300-600ms (sutil)
+    setInterval(crearPetalo, 400);
+</script>
+
+  </body>
 </html>
