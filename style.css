@@ -404,3 +404,8 @@ footer {
 span {
   text-align: left;
 }
+
+.iban {
+  user-select: text;
+  pointer-events: none;
+}
