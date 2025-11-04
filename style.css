@@ -409,3 +409,9 @@ span {
   user-select: text;
   pointer-events: none;
 }
+
+.iban-text {
+  letter-spacing: 1px;
+  color: inherit;
+  text-decoration: none;
+}
